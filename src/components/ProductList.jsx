@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import React, { useEffect, useState, useContext  } from "react";
+import { Row, Col ,Form} from 'react-bootstrap';
 import ProductCard from "./ProductCard";
+import { CartContext } from '../context/CartContext';
 
 const ProductList = ({ category = null }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { agregarAlCarrito } = useContext(CartContext);
+  const [barraDeBusqueda, setBarraDeBusqueda] = useState("");
+
 
   useEffect(() => {
-    let url = "https://fakestoreapi.com/products";
+    let url = "https://6919de2c9ccba073ee942d44.mockapi.io/products";
     if (category) {
-      url = `https://fakestoreapi.com/products/category/${category}`;
+      url = `https://6919de2c9ccba073ee942d44.mockapi.io/products/category/${category}`;
     }
 
     fetch(url)
@@ -24,25 +28,41 @@ const ProductList = ({ category = null }) => {
       });
   }, [category]);
 
-  const handleAgregarAlCarrito = (product) => {
-    alert(`Producto ${product.title} agregado al carrito`);
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  const filteredProducts=products.filter(product=>
+      product.title.toLowerCase().includes(barraDeBusqueda.toLowerCase()) ||
+      product.description.toLowerCase().includes(barraDeBusqueda.toLowerCase())
+);
+
+
+
+
+
+
   return (
+    <>
+    <Form.Control
+      type="text"
+      placeholder="Buscar Poductos"
+      className="mb-4"
+      value={barraDeBusqueda}
+      onChange={(e) =>setBarraDeBusqueda(e.target.value)}
+    >
+
+    </Form.Control>
+  
     <Row>
-      {products.map((product) => (
+
+      {filteredProducts.map((product) => (
         <Col md={4} key={product.id} className="mb-4">
-          <ProductCard
-            product={product}
-            agregarAlCarrito={handleAgregarAlCarrito}
-          />
+          <ProductCard product={product} agregarAlCarrito={agregarAlCarrito} />
         </Col>
       ))}
     </Row>
+      </>
   );
 };
 

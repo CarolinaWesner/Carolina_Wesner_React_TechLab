@@ -9,7 +9,7 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4 shadow-sm">
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-          <span style={{ color: "#d4af37", fontWeight: "bold" }}>URBAN STYLE</span>
+          <span style={{ color: "#d4af37", fontWeight: "bold" }}>RONDA FINAL - Juegos de mesa</span>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -24,7 +24,7 @@ const Header = () => {
             <div className="d-flex align-items-center">
               <Button
                 variant="outline-light"
-                as={Link}
+                as={Link}  //renderiza el boton a un link para poder usar la
                 to="/administracion"
                 className="me-2 mt-2 mt-lg-0"
               >

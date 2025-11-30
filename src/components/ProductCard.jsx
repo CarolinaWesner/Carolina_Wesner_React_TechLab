@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
+import { Link } from 'react-router-dom';
+
 const ProductCard = ({ product, agregarAlCarrito }) => {
   return (
     <Card
@@ -27,7 +29,6 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
         style={{
           height: "180px",
           objectFit: "cover",
-
         }}
       />
 
@@ -65,6 +66,15 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
             onClick={() => agregarAlCarrito(product)}
           >
             Agregar
+          </Button>
+          <Button
+            variant="info"
+            as={Link}
+            to={`/producto`}
+            state={{ product }} //para pasar un producto al componente
+            className="me-2 mt-2 mt-lg-0"
+          >
+            Ver detalle
           </Button>
         </div>
       </Card.Body>
