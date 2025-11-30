@@ -13,7 +13,7 @@ const ProductList = ({ category = null }) => {
   useEffect(() => {
     let url = "https://6919de2c9ccba073ee942d44.mockapi.io/products";
     if (category) {
-      url = `https://6919de2c9ccba073ee942d44.mockapi.io/products/category/${category}`;
+      url = `https://6919de2c9ccba073ee942d44.mockapi.io/products?category=${category}`;
     }
 
     fetch(url)
@@ -37,16 +37,11 @@ const ProductList = ({ category = null }) => {
       product.description.toLowerCase().includes(barraDeBusqueda.toLowerCase())
 );
 
-
-
-
-
-
   return (
     <>
     <Form.Control
       type="text"
-      placeholder="Buscar Poductos"
+      placeholder="Buscar juego"
       className="mb-4"
       value={barraDeBusqueda}
       onChange={(e) =>setBarraDeBusqueda(e.target.value)}
