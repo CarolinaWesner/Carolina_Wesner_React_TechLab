@@ -14,12 +14,14 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="mb-4 shadow-sm">
+    <Navbar style={{backgroundColor:"#1B4332"}} variant="dark" expand="lg" className="mb-4 shadow-sm" >
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-          <span style={{ color: "#d4af37", fontWeight: "bold" }}>
-            RONDA FINAL - Juegos de mesa
-          </span>
+          <img
+        src="src\images\logo.png"
+        className="logo-img me-2"
+        alt="Logo insignia"
+      />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

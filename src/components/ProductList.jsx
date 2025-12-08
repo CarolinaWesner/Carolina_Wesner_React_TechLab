@@ -52,7 +52,7 @@ const ProductList = ({ category = null }) => {
     <Row>
 
       {filteredProducts.map((product) => (
-        <Col md={4} key={product.id} className="mb-4">
+        <Col md={4} key={product.id} className="mb-3">
           <ProductCard product={product} agregarAlCarrito={agregarAlCarrito} />
         </Col>
       ))}

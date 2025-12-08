@@ -31,7 +31,10 @@ const ProductDetail =  () => {
               }).format(product.price)}
             </h3>
 
-            <p className="py-4" style={{ textAlign: "justify" }}>{product.description}</p>
+            <p className="py-3" style={{ textAlign: "justify" }}>{product.description}</p>
+
+            <h6 className="py-2"> Jugadores: {product.minPlayers} - {product.maxPlayers}  </h6>
+            <h6 className="pb-4"> Tiempo de juego: {product.minTime} -  {product.maxTime} min </h6>
 
             <Button variant="primary" onClick={() => agregarAlCarrito(product)}>Agregar al carrito</Button>
           </Card>

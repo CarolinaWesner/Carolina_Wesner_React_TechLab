@@ -9,6 +9,7 @@ import Carrito from "./components/Carrito";
 import CrudProductos from "./components/CrudProductos";
 import ProductDetail from "./components/ProductDetail";
 import Categoria from "./components/Categoria";
+import "./App.css";
 
 function App() {
   return (
