@@ -1,4 +1,8 @@
 import React, { createContext, useState } from 'react';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 // Crear el contexto --> es como una variable global
 export const CartContext = createContext();
@@ -10,37 +14,47 @@ export const CartProvider = ({ children }) => {
 
   // Agregar producto al carrito
   const agregarAlCarrito = (producto) => {
+    let existe = false;
     setCarrito((prevCarrito) => {
-      const existe = prevCarrito.find(item => item.id === producto.id);
-      if (existe) {
+      const productoExistente  = prevCarrito.find(item => item.id === producto.id);
+      if (productoExistente ) {
+         existe = true;
         // Si ya existe, aumentar la cantidad
+        
         return prevCarrito.map(item =>
           item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
         );
+        
       }
+       
       // Si no existe, agregarlo con cantidad 1
       return [...prevCarrito, { ...producto, cantidad: 1 }];
+     
     });
+    toast.success(existe ? "Cantidad aumentada!" : "Producto agregado al carrito!");
   };
 
   // Eliminar producto por ID
   const eliminarDelCarrito = (id) => {
     setCarrito((prevCarrito) => prevCarrito.filter(item => item.id !== id));
+    toast.warn("Producto eliminado");
   };
 
   // Vaciar el carrito (opcional)
   const vaciarCarrito = () => {
     setCarrito([]);
+    toast.warn("El carrito se vació");
   };
+
 
   return (
     <CartContext.Provider
       value={{
         carrito,
-        setCarrito,
+        //setCarrito,
         agregarAlCarrito,
         eliminarDelCarrito,
-        vaciarCarrito
+        vaciarCarrito,
       }}
     >
       {children}

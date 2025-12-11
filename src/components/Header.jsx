@@ -12,6 +12,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
+import { FaShoppingCart } from "react-icons/fa";
+
 const Header = () => {
   return (
     <Navbar style={{backgroundColor:"#1B4332"}} variant="dark" expand="lg" className="mb-4 shadow-sm" >
@@ -57,7 +59,7 @@ const Header = () => {
             to="/administracion"
             className="me-2 mt-2 mt-lg-0"
           >
-            Administración
+            Ingresar
           </Button>
 
           <Link to="/carrito" className="text-white ms-2">

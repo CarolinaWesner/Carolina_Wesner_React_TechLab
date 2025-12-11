@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
-import { Container, Table, Button } from 'react-bootstrap';
-import { CartContext } from '../context/CartContext';
+import React, { useContext } from "react";
+import { Container, Table, Button } from "react-bootstrap";
+import { CartContext } from "../context/CartContext";
 
 const Carrito = () => {
-  const { carrito, setCarrito } = useContext(CartContext);
+  const { carrito, eliminarDelCarrito, vaciarCarrito } =
+    useContext(CartContext);
 
-  const eliminarDelCarrito = (id) => {
-    setCarrito(prev => prev.filter(producto => producto.id !== id));
-  };
+  //const eliminarDelCarrito = (id) => {
+  //  setCarrito(prev => prev.filter(producto => producto.id !== id));
+  //};
 
-  const total = carrito.reduce((acc, item) => acc + Number(item.price) * item.cantidad, 0);
+  const total = carrito.reduce(
+    (acc, item) => acc + Number(item.price) * item.cantidad,
+    0
+  );
 
   if (carrito.length === 0) {
     return (
@@ -21,7 +25,14 @@ const Carrito = () => {
 
   return (
     <Container className="mt-4">
-      <h3>Carrito de compras</h3>
+     <h1 style={{
+          color: '#0a0000ff',          
+          fontWeight: 600,           
+          fontSize: '2rem',       
+          borderBottom: '2px solid #d4af37',
+          paddingBottom: '0.5rem',
+          marginBottom: '2rem'
+        }}>Carrito de compras</h1>
       <Table striped bordered hover responsive className="mt-3">
         <thead>
           <tr>
@@ -36,9 +47,17 @@ const Carrito = () => {
           {carrito.map((item) => (
             <tr key={item.id}>
               <td>{item.title}</td>
-              <td>${Number(item.price).toFixed(2)}</td>
+              <td> {new Intl.NumberFormat("es-AR", {
+                style: "currency",
+                currency: "ARS",
+              }).format(Number(item.price).toFixed(2))}</td>
               <td>{item.cantidad}</td>
-              <td>${(Number(item.price) * item.cantidad).toFixed(2)}</td>
+              <td>{new Intl.NumberFormat("es-AR", {
+                style: "currency",
+                currency: "ARS",
+              }).format((Number(item.price) * item.cantidad).toFixed(2))}</td>
+
+              
               <td>
                 <Button
                   variant="danger"
@@ -53,6 +72,13 @@ const Carrito = () => {
         </tbody>
       </Table>
       <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
+      <Button
+        variant="danger"
+        size="sm"
+        onClick={() => vaciarCarrito()}
+      >
+        Vaciar carrito
+      </Button>
     </Container>
   );
 };

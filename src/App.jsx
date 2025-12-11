@@ -11,11 +11,16 @@ import ProductDetail from "./components/ProductDetail";
 import Categoria from "./components/Categoria";
 import "./App.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
-  return (
+return (
+  <>
     <CartProvider>
       <Router>
         <Header />
+        
         <Routes>
           <Route path="/administracion" element={<Login />} />
           <Route path="/" element={<Home />} />
@@ -25,10 +30,14 @@ function App() {
           <Route path="/producto" element={<ProductDetail />} />
           <Route path="/categoria/:category" element={<Categoria />} />
         </Routes>
+
         <Footer />
       </Router>
     </CartProvider>
-  );
+
+    <ToastContainer />
+  </>
+);
 }
 
 export default App;

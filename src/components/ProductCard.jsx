@@ -27,9 +27,10 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
         src={product.image}
         alt={product.title}
         style={{
-          height: "180px",
+          height: "250px",
           objectFit: "contain",
         }}
+        className="my-3"
       />
 
       <Card.Body className="d-flex flex-column justify-content-between">
@@ -61,6 +62,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
             className="w-100 mb-2"
             variant="outline-primary"
             onClick={() => agregarAlCarrito(product)}
+            aria-label="Agregar al carrito"
             
             
           >
