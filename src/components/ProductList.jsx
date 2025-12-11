@@ -3,8 +3,6 @@ import { Row, Col, Form } from "react-bootstrap";
 import ProductCard from "./ProductCard";
 import { CartContext } from "../context/CartContext";
 
-import Pagination from "react-bootstrap/Pagination";
-
 const ProductList = ({ category = null }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);

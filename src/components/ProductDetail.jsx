@@ -3,8 +3,6 @@ import { useLocation } from "react-router-dom";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import { CartContext } from '../context/CartContext';
 
-
-
 const ProductDetail =  () => {
   const location = useLocation();
   const { product } = location.state;
