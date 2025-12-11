@@ -13,8 +13,7 @@ const Home = () => {
           marginBottom: '2rem'
         }}>Todos los productos</h1>
       
-      <ProductList category="women's clothing" />
-      <ProductList category="men's clothing" />
+      <ProductList category="" />
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import ProductList from './ProductList';
+import { useParams } from "react-router-dom";
 
-const Mujer = () => {
+const Categoria = () => {
+    const { category } = useParams(); //lee parametro
   return (
     <div className="container">
       <h1 style={{
@@ -11,10 +13,10 @@ const Mujer = () => {
           borderBottom: '2px solid #d4af37',
           paddingBottom: '0.5rem',
           marginBottom: '2rem'
-        }}>Mujer</h1>
-      <ProductList category="women's clothing" />
+        }}>{category}</h1>
+      <ProductList category={category} />
     </div>
   );
 };
 
-export default Mujer;
+export default Categoria;

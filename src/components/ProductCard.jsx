@@ -1,12 +1,14 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 const ProductCard = ({ product, agregarAlCarrito }) => {
   return (
     <Card
       className="h-100 d-flex flex-column shadow"
       style={{
-        backgroundColor: "#d4af3729",
+        
         border: "none",
         borderRadius: "8px",
         transition: "transform 0.3s, box-shadow 0.3s",
@@ -25,10 +27,10 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
         src={product.image}
         alt={product.title}
         style={{
-          height: "180px",
-          objectFit: "cover",
-
+          height: "250px",
+          objectFit: "contain",
         }}
+        className="my-3"
       />
 
       <Card.Body className="d-flex flex-column justify-content-between">
@@ -38,33 +40,42 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
           >
             {product.title}
           </Card.Title>
-          <Card.Text
-            style={{
-              color: "#383737ff",
-              fontSize: "0.875rem",
-              marginTop: "0.3rem",
-            }}
-          >
-            {product.description.slice(0, 80)}...
-          </Card.Text>
         </div>
 
-        <div className="mt-3 d-flex justify-content-between align-items-center">
-          <Card.Subtitle
-            className="mb-2 text-muted"
+        <div>
+          <Card.Text
+            className="mb-2 text-success"
             style={{
               fontWeight: "bold",
               fontSize: "1.7rem",
               fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            ${product.price}
-          </Card.Subtitle>
-          <Button
-            variant="outline-dark"
+            {new Intl.NumberFormat("es-AR", {
+              style: "currency",
+              currency: "ARS",
+            }).format(product.price)}
+          </Card.Text>
+        </div>
+        <div >
+          <Button 
+            className="w-100 mb-2"
+            variant="outline-primary"
             onClick={() => agregarAlCarrito(product)}
+            aria-label="Agregar al carrito"
+            
+            
           >
             Agregar
+          </Button>
+          <Button
+            variant="outline-info"
+            as={Link}
+            to={`/producto`}
+            state={{ product }} //para pasar un producto al componente
+            className="w-100"
+          >
+            Ver detalle
           </Button>
         </div>
       </Card.Body>

@@ -9,11 +9,10 @@ const Footer = () => {
         <Row className="text-center text-md-start">
           <Col md={4} className="mb-4 mb-md-0">
             <h5 className="fw-bold text-uppercase" style={{ color: "#d4af37" }}>
-              Urban Style
+              INSIGNIA
             </h5>
             <p className="small">
-              Moda urbana para mujer y hombre. <br /> Estilo que te acompaña
-              siempre.
+              Tienda especializada en juegos de mesa. <br />Encontrá los mejores títulos y viví grandes momentos en cada partida.
             </p>
             <div>
               <a
@@ -44,11 +43,11 @@ const Footer = () => {
             <h6 className="fw-bold mb-3" style={{ color: "#d4af37" }}>
               Contacto
             </h6>
-            <p className="small mb-1">📧 contacto@urbanstyle.com</p>
+            <p className="small mb-1">📧 contacto@insignia.com</p>
             <p className="small mb-1">📱 +54 9 11 5555 1234</p>
             <p className="small mb-3">🕓 Lun a Vie 10 a 18 hs</p>
             <p className="small text-secondary mb-0">
-              © {new Date().getFullYear()} Urban Style — Todos los derechos
+              © {new Date().getFullYear()} INSIGNIA — Todos los derechos
               reservados.
             </p>
           </Col>
