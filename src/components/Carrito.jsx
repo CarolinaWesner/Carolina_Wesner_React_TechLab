@@ -6,10 +6,6 @@ const Carrito = () => {
   const { carrito, eliminarDelCarrito, vaciarCarrito } =
     useContext(CartContext);
 
-  //const eliminarDelCarrito = (id) => {
-  //  setCarrito(prev => prev.filter(producto => producto.id !== id));
-  //};
-
   const total = carrito.reduce(
     (acc, item) => acc + Number(item.price) * item.cantidad,
     0

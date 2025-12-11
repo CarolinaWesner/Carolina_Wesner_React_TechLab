@@ -55,7 +55,7 @@ const Header = () => {
         <div className="d-flex align-items-center">
           <Button
             variant="outline-light"
-            as={Link} //renderiza el boton a un link para poder usar la
+            as={Link}
             to="/administracion"
             className="me-2 mt-2 mt-lg-0"
           >

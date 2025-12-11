@@ -3,7 +3,7 @@ import ProductList from './ProductList';
 import { useParams } from "react-router-dom";
 
 const Categoria = () => {
-    const { category } = useParams(); //lee parametro
+    const { category } = useParams(); 
   return (
     <div className="container">
       <h1 style={{

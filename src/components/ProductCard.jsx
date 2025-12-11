@@ -72,7 +72,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
             variant="outline-info"
             as={Link}
             to={`/producto`}
-            state={{ product }} //para pasar un producto al componente
+            state={{ product }} 
             className="w-100"
           >
             Ver detalle

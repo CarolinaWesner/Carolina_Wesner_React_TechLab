@@ -6,7 +6,6 @@ import { CartContext } from '../context/CartContext';
 
 
 const ProductDetail =  () => {
-  //para recibir el componente
   const location = useLocation();
   const { product } = location.state;
 

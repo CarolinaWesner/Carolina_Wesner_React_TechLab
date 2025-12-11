@@ -5,7 +5,7 @@ const API_URL = "https://6919de2c9ccba073ee942d44.mockapi.io/products";
 
 const CrudProductos = () => {
   const [productos, setProductos] = useState([]);
-  const [show, setShow] = useState(false); //controla el modal, si se ve o no
+  const [show, setShow] = useState(false);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -17,8 +17,8 @@ const CrudProductos = () => {
     maxTime: "",
     minPlayers: "",
     maxPlayers: "",
-  }); //el imput (los datos que voy a ingresar y que luego se enviaran a la api)
-  const [editId, setEditId] = useState(null); //para saber si estamos editando
+  }); 
+  const [editId, setEditId] = useState(null); 
 
   ///obtengo los productos de la api
   const getProductos = () => {
@@ -51,8 +51,8 @@ const CrudProductos = () => {
     setShow(true);
     if (producto) {
       setForm({
-        ...producto, //operador de propagacion, mete todos los elementos en objetos
-        price: Number(producto.price), //parsea a numero
+        ...producto, 
+        price: Number(producto.price), 
         stock: Number(producto.stock),
         minPlayers: Number(producto.minPlayers),
         maxPlayers: Number(producto.maxPlayers),
@@ -65,7 +65,7 @@ const CrudProductos = () => {
 
   //Crear o editar producto
   const handleSubmit = (e) => {
-    e.preventDefault(); //valida el formulario
+    e.preventDefault(); 
 
     const productData = {
       ...form,

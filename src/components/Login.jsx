@@ -5,12 +5,11 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 const Login = () => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
-  const navigate = useNavigate(); //para redirigir al crud cuando se loguea el usuario
+  const navigate = useNavigate(); 
 
   const [showPass, setShowPass] = useState(false);
 
   const handleSubmit = (e) => {
-    //recibe un evento que es el submit del formulario
     e.preventDefault();
     if (user === "admin" && pass === "1234") {
       navigate("/crud");
