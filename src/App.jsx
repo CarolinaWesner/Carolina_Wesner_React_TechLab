@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Ofertas from "./components/Ofertas";
@@ -15,29 +15,29 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-return (
-  <>
-    <CartProvider>
-      <Router>
-        <Header />
-        
-        <Routes>
-          <Route path="/administracion" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/ofertas" element={<Ofertas />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/crud" element={<CrudProductos />} />
-          <Route path="/producto" element={<ProductDetail />} />
-          <Route path="/categoria/:category" element={<Categoria />} />
-        </Routes>
+  return (
+    <>
+      <CartProvider>
+        <Router>
+          <Header />
 
-        <Footer />
-      </Router>
-    </CartProvider>
+          <Routes>
+            <Route path="/administracion" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/ofertas" element={<Ofertas />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/crud" element={<CrudProductos />} />
+            <Route path="/producto" element={<ProductDetail />} />
+            <Route path="/categoria/:category" element={<Categoria />} />
+          </Routes>
 
-    <ToastContainer />
-  </>
-);
+          <Footer />
+        </Router>
+      </CartProvider>
+
+      <ToastContainer />
+    </>
+  );
 }
 
 export default App;
