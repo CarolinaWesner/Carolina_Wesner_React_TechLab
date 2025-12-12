@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import { FaShoppingCart } from "react-icons/fa";
+import logo from '../images/logo.png';
 
 const Header = () => {
   return (
@@ -20,7 +21,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
-        src="src\images\logo.png"
+        src={logo}
         className="logo-img me-2"
         alt="Logo insignia"
       />
